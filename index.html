@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>thisisanna</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --beige:   #e7edf2;
+      --beige2:  #f4f7fa;
+      --white:   #ffffff;
+      --blue:    #0f766e;
+      --black:   #0b1320;
+      --gray:    #415a77;
+      --lightgray: #6b7c93;
+      --card-radius: 14px;
+      --card-border: #d8e2ec;
+      --card-shadow: 0 10px 24px rgba(11, 19, 32, 0.06);
+      --measure: 72ch;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--black); line-height: 1.7; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+      background: var(--white); border-bottom: 1px solid var(--beige2);
+      padding: 0 48px; display: flex; align-items: center;
+      justify-content: space-between; height: 64px;
+    }
+    .nav-left { display: flex; align-items: center; gap: 16px; }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-square { width: 18px; height: 18px; background: var(--blue); flex-shrink: 0; }
+    .nav-logo-name { font-size: 1.1rem; font-weight: 800; color: var(--black); letter-spacing: -0.02em; }
+    .nav-slash { color: var(--lightgray); font-weight: 300; font-size: 1rem; }
+    .nav-role { font-size: 0.9rem; color: var(--gray); font-weight: 400; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; text-decoration: none;
+      color: var(--black); transition: color 0.15s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--blue); }
+
+    /* SPLIT LAYOUT */
+    .split { display: flex; min-height: 100vh; }
+    .split-left {
+      width: 42%; background: var(--beige);
+      display: flex; align-items: center; justify-content: center;
+      padding: 80px 48px 60px; flex-shrink: 0;
+    }
+    .split-right {
+      flex: 1; background: var(--white);
+      display: flex; align-items: center; padding: 80px 64px 60px;
+    }
+
+    /* PROFILE CARD */
+    .profile-card {
+      background: var(--white); border-radius: var(--card-radius);
+      border: 1px solid var(--card-border);
+      box-shadow: var(--card-shadow);
+      padding: 50px 42px 44px; width: 340px; text-align: center;
+    }
+    .profile-photo {
+      width: 220px; height: 220px; border-radius: 50%;
+      overflow: hidden; margin: 0 auto 30px;
+      background: var(--beige);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .profile-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; }
+    .profile-photo-placeholder { font-size: 2.5rem; font-weight: 800; color: var(--gray); }
+    .profile-name { font-size: 1.45rem; font-weight: 800; color: var(--black); margin-bottom: 14px; }
+    .profile-divider { width: 64px; height: 4px; background: var(--blue); margin: 0 auto 18px; }
+    .profile-role {
+      font-size: 0.88rem; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--gray); margin-bottom: 34px; font-weight: 600;
+    }
+    .profile-socials { display: flex; justify-content: center; gap: 24px; }
+    .profile-socials a {
+      color: var(--black); font-size: 1.35rem; font-weight: 700;
+      text-decoration: none; transition: color 0.15s;
+    }
+    .profile-socials a:hover { color: var(--blue); }
+
+    /* HERO TEXT */
+    .hero-hello {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5.2rem; font-weight: 700; color: var(--black);
+      line-height: 0.95; letter-spacing: -0.02em; margin-bottom: 16px;
+    }
+    .hero-welcome { font-size: 1.2rem; font-weight: 500; color: var(--black); margin-bottom: 18px; }
+    .current-focus {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid #b7d9d6;
+      background: #edf7f6;
+      color: #0b5f58;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-bottom: 24px;
+    }
+    .current-focus::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--blue);
+      box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.12);
+    }
+    .btn-row { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 36px; }
+    .btn-blue {
+      background: var(--blue); color: var(--white);
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 14px 28px; border-radius: 50px;
+      text-decoration: none; transition: opacity 0.15s;
+    }
+    .btn-blue:hover { opacity: 0.85; }
+    .btn-outline {
+      background: transparent; color: var(--black);
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 13px 28px; border-radius: 50px;
+      text-decoration: none; border: 1.5px solid var(--black); transition: all 0.15s;
+    }
+    .btn-outline:hover { background: var(--black); color: var(--white); }
+    .hero-intro { font-size: 0.95rem; color: var(--gray); max-width: var(--measure); line-height: 1.75; }
+
+    /* ABOUT */
+    #about { background: var(--white); padding: 96px 48px; }
+    .about-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .about-block {
+      background: var(--white);
+      border-radius: var(--card-radius);
+      padding: 32px;
+      border: 1px solid var(--card-border);
+      box-shadow: var(--card-shadow);
+    }
+    .about-block h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: -0.01em;
+      margin-bottom: 16px;
+    }
+    .about-block p { font-size: 0.95rem; color: var(--gray); margin-bottom: 1rem; line-height: 1.8; max-width: var(--measure); }
+    .about-block p:last-child { margin-bottom: 0; }
+    .about-block ul {
+      margin: 0;
+      padding-left: 1.2rem;
+      color: var(--gray);
+      line-height: 1.8;
+      max-width: var(--measure);
+    }
+
+    /* SECTION TITLE WITH BLUE SQUARE */
+    .section-title-inline {
+      display: flex; align-items: center; gap: 14px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem; font-weight: 700; color: var(--black);
+      letter-spacing: -0.015em; margin-bottom: 56px;
+    }
+    .section-title-inline .blue-sq { width: 16px; height: 16px; background: var(--blue); flex-shrink: 0; border-radius: 3px; }
+
+    /* GOALS */
+    #goals { background: var(--beige); padding: 80px 48px; }
+    #goals .section-title-inline { justify-content: center; }
+    .goals-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px; max-width: 1100px; margin: 0 auto;
+    }
+    .goal-card { background: var(--white); padding: 32px 28px; border-radius: 4px; }
+    .goal-card .date { font-size: 1rem; font-weight: 800; color: var(--blue); margin-bottom: 8px; }
+    .goal-card h3 { font-size: 1rem; font-weight: 700; color: var(--black); margin-bottom: 12px; }
+    .goal-card p { font-size: 0.875rem; color: var(--gray); line-height: 1.75; }
+
+    /* PROJECTS */
+    #projects { background: var(--white); padding: 96px 48px; }
+    #projects .section-title-inline { justify-content: center; }
+    .projects-list { max-width: 900px; margin: 0 auto; }
+    .project-entry { margin-bottom: 24px; }
+    .project-entry-inner {
+      background: var(--white);
+      border-radius: var(--card-radius);
+      border: 1px solid var(--card-border);
+      box-shadow: var(--card-shadow);
+      padding: 32px;
+    }
+    .project-entry-inner h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+    .project-role {
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--blue); margin-bottom: 12px;
+    }
+    .project-role::before { content: "+ "; color: var(--blue); }
+    .project-description { font-size: 0.9rem; color: var(--gray); line-height: 1.75; max-width: var(--measure); }
+    .project-citation {
+      margin-top: 10px;
+      font-size: 0.82rem;
+      color: var(--lightgray);
+    }
+    .project-citation a { color: var(--blue); text-decoration: none; }
+    .project-citation a:hover { text-decoration: underline; }
+    .project-images {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .project-images.single { grid-template-columns: 1fr; }
+    .project-images img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      height: auto;
+      object-fit: contain;
+      border-radius: 10px;
+      border: 1px solid var(--card-border);
+      background: var(--beige2);
+      padding: 10px;
+    }
+
+    /* RESUME */
+    #resume { background: var(--beige); padding: 96px 48px; }
+    #resume .section-title-inline { justify-content: center; }
+    .resume-top {
+      display: flex; justify-content: space-between; align-items: center;
+      max-width: 900px; margin: 0 auto 32px;
+    }
+    .resume-top h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--black);
+    }
+    .resume-entries { max-width: 900px; margin: 0 auto; }
+    .resume-entry {
+      background: var(--white);
+      border-radius: var(--card-radius);
+      border: 1px solid var(--card-border);
+      box-shadow: var(--card-shadow);
+      padding: 40px 44px;
+      margin-bottom: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+    }
+    .resume-entry .left .date { font-size: 1.1rem; font-weight: 800; color: var(--blue); margin-bottom: 8px; line-height: 1.3; }
+    .resume-entry .left .role { font-size: 0.95rem; font-weight: 600; color: var(--black); margin-bottom: 4px; }
+    .resume-entry .left .org { font-size: 0.875rem; color: var(--gray); margin-bottom: 4px; }
+    .resume-entry .left .loc { font-size: 0.875rem; color: var(--lightgray); }
+    .resume-entry .left .date::before { content: "[time] "; color: var(--lightgray); font-weight: 600; font-size: 0.7rem; letter-spacing: 0.08em; }
+    .resume-entry .left .role::before { content: "[role] "; color: var(--lightgray); font-weight: 600; font-size: 0.7rem; letter-spacing: 0.08em; }
+    .resume-entry .left .org::before { content: "[org] "; color: var(--lightgray); font-weight: 600; font-size: 0.7rem; letter-spacing: 0.08em; }
+    .resume-entry .left .loc::before { content: "[loc] "; color: var(--lightgray); font-weight: 600; font-size: 0.7rem; letter-spacing: 0.08em; }
+    .resume-entry .right ul { list-style: disc; padding-left: 1.2rem; }
+    .resume-entry .right ul li { font-size: 0.875rem; color: var(--gray); line-height: 1.75; margin-bottom: 6px; max-width: var(--measure); }
+
+    /* SKILLS */
+    #skills { background: var(--white); padding: 96px 48px; }
+    #skills .section-title-inline { justify-content: center; }
+    .skills-table {
+      max-width: 900px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;
+    }
+    .skill-card {
+      background: var(--white);
+      border-radius: var(--card-radius);
+      border: 1px solid var(--card-border);
+      box-shadow: var(--card-shadow);
+      padding: 28px;
+    }
+    .skill-card h4 {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--blue); margin-bottom: 14px;
+    }
+    .skill-card p { font-size: 0.875rem; color: var(--gray); line-height: 1.7; }
+
+    /* FOOTER */
+    footer { background: var(--black); padding: 64px 48px; text-align: center; }
+    footer h2 { font-size: 2rem; font-weight: 900; color: var(--beige2); margin-bottom: 12px; letter-spacing: -0.03em; }
+    footer > p { font-size: 0.9rem; color: var(--beige); margin-bottom: 32px; }
+    .footer-links { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 40px; }
+    .footer-link { color: var(--beige2); font-size: 0.875rem; font-weight: 500; text-decoration: none; transition: color 0.15s; }
+    .footer-link:hover { color: var(--blue); }
+    .footer-copy { font-size: 0.75rem; color: var(--gray); }
+
+    /* RESPONSIVE */
+    @media (max-width: 860px) {
+      .split { flex-direction: column; min-height: auto; }
+      .split-left { width: 100%; min-height: 200px; padding: 60px 32px 40px; }
+      .split-right { padding: 40px 32px 60px; }
+      .hero-hello { font-size: 3.5rem; }
+      nav { padding: 0 24px; }
+      .nav-links { gap: 1.5rem; }
+      .resume-entry { grid-template-columns: 1fr; }
+      .project-images { grid-template-columns: 1fr; }
+      .about-grid { grid-template-columns: 1fr; }
+      #about { padding: 60px 24px; }
+      #goals, #projects, #resume, #skills { padding: 60px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-left">
+    <a href="#home" class="nav-logo">
+      <div class="nav-logo-square"></div>
+      <span class="nav-logo-name">Youyun (Anna) Yang</span>
+    </a>
+    <span class="nav-slash">/</span>
+    <span class="nav-role">Computer Engineer</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about" class="active">About Me</a></li>
+    <li><a href="#resume">Resume</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div id="home" class="split" style="padding-top:64px;">
+  <div class="split-left">
+    <div class="profile-card">
+      <div class="profile-photo">
+        <img src="E71A5629.JPG" alt="Anna Yang"
+             onerror="this.style.display='none'; document.getElementById('photo-fallback').style.display='flex';" />
+        <span id="photo-fallback" class="profile-photo-placeholder" style="display:none;">AY</span>
+      </div>
+      <div class="profile-name">Youyun (Anna) Yang</div>
+      <div class="profile-divider"></div>
+      <div class="profile-role">Computer Engineer</div>
+      <div class="profile-socials">
+        <a href="mailto:yyang3123@gatech.edu" title="Email">✉</a>
+        <a href="https://www.linkedin.com/in/anna-yang-8638a1288/" target="_blank" title="LinkedIn">in</a>
+      </div>
+    </div>
+  </div>
+  <div class="split-right">
+    <div>
+      <div class="hero-hello">Hello</div>
+      <div class="hero-welcome">Welcome to my page!</div>
+      <div class="current-focus">Currently: DFT reproduction (density functional theory), Summer 2026 internship @ Mizu Financial</div>
+      <div class="btn-row">
+        <a href="Resume.pdf" download class="btn-blue">Resume</a>
+        <a href="#projects" class="btn-outline">Projects</a>
+      </div>
+      <p class="hero-intro">
+        I am a first-year student at Georgia Tech majoring in Computer Engineering with threads in Computer Hardware &amp; Emerging Architectures and Systems &amp; Architecture.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <article class="about-block">
+      <h3>About Me</h3>
+      <p>
+        My name is Youyun (Anna) Yang, an international student from China. I was born and raised in Shanghai, where I lived for 15 years before moving to Oxford, United Kingdom, to pursue my Advanced Level (A-Level) studies.
+      </p>
+      <p>
+        Beyond academics, I enjoy expressing creativity through piano and cello performance, photography, filmmaking, and traveling, as well as spending time outdoors hiking.
+      </p>
+      <p>
+        Academically, I am currently in the early stages of my Computer Engineering journey, with growing interests in high-performance computing, computational simulations, and digital systems.
+      </p>
+    </article>
+    <article class="about-block">
+      <h3>Purpose</h3>
+      <p>
+        This personal website serves as a central place to share who I am, what I have accomplished, and what I aspire to achieve. I hope it provides a clear and authentic overview of my experiences, skills, and future direction.
+      </p>
+    </article>
+    <article class="about-block">
+      <h3>Career Goals</h3>
+      <p>
+        I plan to graduate in May 2029 with a Bachelor of Science in Computer Engineering. Following my undergraduate studies, I intend to pursue a Master's or Ph.D. degree, ideally in a new city that offers fresh academic and cultural opportunities.
+      </p>
+      <p>
+        In Summer 2026, I will be interning at <a href="https://mizufinancial.com/" target="_blank">MIZU Financial</a>, an AI-focused startup, where I hope to deepen my understanding of real-world applications of technology.
+      </p>
+      <p>During my time at Georgia Tech, I aim to:</p>
+      <ul>
+        <li>Actively participate in technical organizations and campus initiatives</li>
+        <li>Engage in undergraduate research, particularly in systems, architecture, or computational science</li>
+        <li>Continue building meaningful projects that bridge theory and practice</li>
+      </ul>
+    </article>
+    <article class="about-block">
+      <h3>Objective</h3>
+      <p>
+        A highly motivated Computer Engineering student with strong foundations in low-level programming, digital systems, and hardware-software integration. Brings hands-on experience in PCB design, robotics, and high-performance computing, developed through projects such as Formula SAE and quantum mechanics simulations.
+      </p>
+    </article>
+  </div>
+</section>
+
+<!-- decorative SVG banner between About and Goals -->
+<div style="background:var(--white); padding: 32px 48px 0; display:flex; justify-content:center;">
+  <svg viewBox="0 0 900 24" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:900px;">
+    <rect x="0"   y="9" width="180" height="6" rx="3" fill="#0f766e" opacity="0.15"/>
+    <rect x="188" y="9" width="60"  height="6" rx="3" fill="#0f766e" opacity="0.4"/>
+    <rect x="256" y="9" width="30"  height="6" rx="3" fill="#0f766e"/>
+    <rect x="294" y="9" width="312" height="6" rx="3" fill="#e7edf2"/>
+    <rect x="614" y="9" width="30"  height="6" rx="3" fill="#0f766e"/>
+    <rect x="652" y="9" width="60"  height="6" rx="3" fill="#0f766e" opacity="0.4"/>
+    <rect x="720" y="9" width="180" height="6" rx="3" fill="#0f766e" opacity="0.15"/>
+  </svg>
+</div>
+
+
+
+<!-- RESUME -->
+<section id="resume">
+  <div class="section-title-inline">
+    <div class="blue-sq"></div>
+    Resume
+  </div>
+  <div class="resume-top">
+    <h3>Experience &amp; Education</h3>
+    <a href="Resume.pdf" download class="btn-blue">Download CV</a>
+  </div>
+  <div class="resume-entries">
+
+    <div class="resume-entry">
+      <div class="left">
+        <div class="date">Aug 2025 —<br/>Present</div>
+        <div class="role">B.S. Computer Engineering</div>
+        <div class="org">Georgia Institute of Technology</div>
+        <div class="loc">Atlanta, GA &nbsp;|&nbsp; GPA 4.00</div>
+      </div>
+      <div class="right">
+        <ul>
+          <li>Threads: Computer Hardware &amp; Emerging Architectures (CHEA) and Systems &amp; Architecture</li>
+          <li>Expected Graduation: May 2029</li>
+          <li>Relevant coursework: Digital System Design, Intro to OOP, Differential Equations, Linear Algebra</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="resume-entry">
+      <div class="left">
+        <div class="date">Jan 2026 —<br/>Present</div>
+        <div class="role">Team Member</div>
+        <div class="org">VIP: Big Data &amp; Quantum Mechanics — Medford Group</div>
+        <div class="loc">Georgia Tech, Atlanta GA</div>
+      </div>
+      <div class="right">
+        <ul>
+          <li>Generate atomistic simulation and adsorption energy data using density functional theory (DFT)</li>
+          <li>Managed HPC workflows including job submission, monitoring, and post-processing in Linux</li>
+          <li>Worked in a team-based research environment addressing real-world quantum simulation challenges</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="resume-entry">
+      <div class="left">
+        <div class="date">Jan 2026 —<br/>Present</div>
+        <div class="role">External Relations Dept.</div>
+        <div class="org">Georgia Tech Chinese Students and Scholars Association (GTCSSA)</div>
+        <div class="loc">Atlanta, GA</div>
+      </div>
+      <div class="right">
+        <ul>
+          <li>Coordinated with potential sponsors for the Spring Festival Gala, conducting outreach, negotiation, and follow-up communication</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-title-inline">
+    <div class="blue-sq"></div>
+    Projects
+  </div>
+  <div class="projects-list">
+
+    <div class="project-entry">
+      <div class="project-entry-inner">
+        <h3>Real-Time Camera Filter System on Linux</h3>
+        <div class="project-role">Discovery Project</div>
+        <p class="project-description">to be added soon</p>
+      </div>
+    </div>
+
+    <div class="project-entry">
+      <div class="project-entry-inner">
+        <h3>DFT Paper Reproduction - Hydrogen on Slab Model</h3>
+        <div class="project-role">DFT Reproduction Project</div>
+        <p class="project-description">Reproduced the DFT slab model and hydrogen adsorption setup using SPARC-based simulation workflow. Scope was limited to surface construction, adsorption-site placement, and static energy setup, excluding temperature-dependent extensions.</p>
+        <p class="project-citation">Paper reference: <a href="1-s2.0-S0021951723005122-main.pdf" target="_blank">1-s2.0-S0021951723005122-main.pdf</a></p>
+        <div class="project-images single">
+          <img src="dft.png" alt="DFT reproduction project result" />
+        </div>
+      </div>
+    </div>
+
+    <div class="project-entry">
+      <div class="project-entry-inner">
+        <h3>Formula SAE Electric Vehicle - HyTech Racing</h3>
+        <div class="project-role">Electric Team Member</div>
+        <p class="project-description">Designed and reviewed low-voltage PCBs for HyTech Racing, completed hands-on Altium and soldering onboarding, and contributed to charging and control board development.</p>
+        <div class="project-images">
+          <img src="IMG_4567.JPG" alt="HyTech Racing PCB front view" />
+          <img src="IMG_4568.JPG" alt="HyTech Racing PCB back view" />
+        </div>
+      </div>
+    </div>
+
+    <div class="project-entry">
+      <div class="project-entry-inner">
+        <h3>Continuum Flexible Robotic Arm for Fruit Harvesting</h3>
+        <div class="project-role">Co-engineer</div>
+        <p class="project-description">Co-designed a 2-DOF TPU-printed robotic arm, built an Arduino plus ESP-NOW wireless control system, and developed CAD models for an omnidirectional mobile platform.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-title-inline">
+    <div class="blue-sq"></div>
+    Technical Skills
+  </div>
+  <div class="skills-table">
+    <div class="skill-card">
+      <h4>Programming</h4>
+      <p>Java &nbsp;·&nbsp; Python &nbsp;·&nbsp; C++ &nbsp;·&nbsp; JavaScript &nbsp;·&nbsp; Linux</p>
+    </div>
+    <div class="skill-card">
+      <h4>Platforms</h4>
+      <p>Linux &nbsp;·&nbsp; Arduino &nbsp;·&nbsp; ESP32</p>
+    </div>
+    <div class="skill-card">
+      <h4>Hardware</h4>
+      <p>PCB Design &nbsp;·&nbsp; Soldering &nbsp;·&nbsp; 3D Printing &nbsp;·&nbsp; Oscilloscope &nbsp;·&nbsp; Breadboarding</p>
+    </div>
+    <div class="skill-card">
+      <h4>Software</h4>
+      <p>Altium Designer &nbsp;·&nbsp; Autodesk Fusion 360 &nbsp;·&nbsp; MATLAB &nbsp;·&nbsp; Inventor</p>
+    </div>
+    <div class="skill-card">
+      <h4>Coursework</h4>
+      <p>Digital System Design &nbsp;·&nbsp; Intro to OOP &nbsp;·&nbsp; Differential Equations &nbsp;·&nbsp; Neural Networks (Coursera) &nbsp;·&nbsp; Linear Algebra</p>
+    </div>
+    <div class="skill-card">
+      <h4>Languages</h4>
+      <p>English (Fluent) &nbsp;·&nbsp; Chinese (Native)</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<footer id="contact">
+  <h2>Contact Me</h2>
+  <p>Open to internship opportunities, research collaborations, and conversations about engineering.</p>
+  <div class="footer-links">
+    <a href="mailto:yyang3123@gatech.edu" class="footer-link">yyang3123@gatech.edu</a>
+    <a href="tel:4044016341" class="footer-link">(404) 401-6341</a>
+    <a href="https://www.linkedin.com/in/anna-yang-8638a1288/" target="_blank" class="footer-link">LinkedIn</a>
+  </div>
+  <div class="footer-copy">© 2026 Youyun (Anna) Yang &nbsp;·&nbsp; Georgia Institute of Technology</div>
+</footer>
+
+<script>
+  const sections = document.querySelectorAll('div[id], section[id], footer[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
+    navLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
+  });
+</script>
+</body>
+</html>
