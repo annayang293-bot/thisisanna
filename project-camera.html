@@ -552,7 +552,6 @@
 
     async function loadFullCode() {
       try {
-        const resp = await fetch("Discovery%20Project/src/scratch.cpp");
         const resp = await fetch("scratch.cpp");
         const codeText = await resp.text();
         fullCodeBlock.textContent = codeText;
