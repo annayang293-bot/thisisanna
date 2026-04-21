@@ -216,7 +216,7 @@
 
     <section class="card">
       <h2>Contents</h2>
-      <a class="code-link" href="Discovery%20Project/src/scratch.cpp" target="_blank">OPEN FULL CODE (SCRATCH.CPP)</a>
+      <a class="code-link" href="scratch.cpp" target="_blank">OPEN FULL CODE (SCRATCH.CPP)</a>
       <pre id="fullCodeBlock" class="full-code"></pre>
       <div class="content-stack">
         <h3>Inspiration</h3>
@@ -553,7 +553,7 @@
     async function loadFullCode() {
       try {
         const resp = await fetch("Discovery%20Project/src/scratch.cpp");
-        if (!resp.ok) throw new Error("failed");
+        const resp = await fetch("scratch.cpp");
         const codeText = await resp.text();
         fullCodeBlock.textContent = codeText;
       } catch (err) {
