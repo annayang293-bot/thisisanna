@@ -1,0 +1,159 @@
+{
+  "personal": {
+    "name": "Youyun (Anna) Yang",
+    "preferred_name": "Anna Yang",
+    "email": "yyang3123@gatech.edu",
+    "phone": "(404) 401-6341",
+    "location": "Atlanta, GA",
+    "linkedin": "https://linkedin.com/in/anna-yang",
+    "nationality": "International Student (China)",
+    "languages": ["English (Fluent)", "Chinese (Native)"]
+  },
+  "education": [
+    {
+      "institution": "Georgia Institute of Technology",
+      "degree": "Bachelor of Science in Computer Engineering",
+      "location": "Atlanta, GA",
+      "gpa": "4.00",
+      "start": "August 2025",
+      "end": "May 2029 (expected)",
+      "threads": ["Computer Hardware and Emerging Architectures (CHEA)", "Systems and Architecture"],
+      "coursework_in_progress": [
+        "Digital System Design",
+        "Intro to Object-Oriented Programming",
+        "Differential Equations"
+      ],
+      "coursework_completed": [
+        "Andrew Ng's Neural Networks and Deep Learning (Coursera)",
+        "Linear Algebra",
+        "Discrete Math for CS"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "title": "Team Member",
+      "organization": "Vertical Integrated Project (VIP): Big Data and Quantum Mechanics — Medford Group",
+      "location": "Georgia Tech, Atlanta GA",
+      "start": "January 2026",
+      "end": "Present",
+      "bullets": [
+        "Generate atomistic simulation and adsorption energy data using density functional theory (DFT)",
+        "Managed HPC workflows, including job submission, monitoring, and post-processing in Linux",
+        "Worked in a team-based research environment addressing real-world quantum simulation challenges"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "discovery-project",
+      "title": "Real-Time Camera Filter System on Linux",
+      "type": "Discovery Project",
+      "start": "February 2026",
+      "end": "March 2026",
+      "technologies": ["C++", "OpenCV", "Linux", "perf", "GCC"],
+      "status": "In Progress",
+      "summary": "Real-time grayscale and binary image filters using a Linux-based webcam system. Algorithms written in C++ and analyzed for performance including frame rate, CPU usage, memory consumption, and latency.",
+      "goals": "Produce a real-time filter window capable of grayscale and binary processing with adjustable thresholds, measure and document performance using Linux tools, and optimize where possible.",
+      "timeline": [
+        {"date": "By Mar 3", "milestone": "Set up environment, implement webcam and real-time display"},
+        {"date": "By Mar 8", "milestone": "Implement filters and keyboard threshold controls"},
+        {"date": "By Mar 13", "milestone": "Conduct performance analysis at different resolutions"},
+        {"date": "By Mar 18", "milestone": "Optimize memory usage and algorithms"}
+      ],
+      "ece_skills": [
+        "Systems-level performance analysis",
+        "Real-time data processing",
+        "C++ programming",
+        "Linux profiling tools",
+        "Throughput and latency measurements"
+      ],
+      "writeup_complete": false
+    },
+    {
+      "id": "hytech-racing",
+      "title": "HyTech Racing — Formula SAE Electric Vehicle",
+      "type": "Team Project",
+      "organization": "HyTech Racing, Georgia Tech",
+      "role": "Electric Team Member",
+      "start": "August 2025",
+      "end": "Present",
+      "technologies": ["Altium Designer", "PCB Design", "Soldering", "EV Architecture"],
+      "bullets": [
+        "Completed and soldered a 555-timer–based keychain onboarding project using Altium Designer",
+        "Contributed to low-voltage PCB design and review for vehicle subsystems, including the Charging Control Unit (CCU) and supporting control boards",
+        "Gained hands-on exposure to EV electrical architecture, including CCU, BMS, and tractive system interfaces"
+      ]
+    },
+    {
+      "id": "robotic-arm",
+      "title": "Continuum Flexible Robotic Arm",
+      "type": "Research Project",
+      "organization": "Shanghai University",
+      "location": "Shanghai, CN",
+      "role": "Co-engineer",
+      "start": "January 2023",
+      "end": "August 2023",
+      "technologies": ["Arduino", "ESP32", "ESP-NOW", "Autodesk Fusion 360", "TPU 3D Printing", "Mecanum Wheels"],
+      "bullets": [
+        "Designed and prototyped a 2-DOF robotic arm for fruit harvesting using TPU 3D printing",
+        "Developed an Arduino-based control system with ESP-NOW, extending the wireless range to 50m",
+        "Modeled Fusion 360 CAD models and integrated Mecanum wheels for omnidirectional mobility"
+      ]
+    },
+    {
+      "id": "rube-goldberg",
+      "title": "Rube Goldberg Machine — Unreal Engine Challenge",
+      "type": "Competition / Mentorship",
+      "role": "Team Mentor, Co-engineer",
+      "start": "October 2023",
+      "end": "May 2025",
+      "technologies": ["C++", "Unreal Engine 5"],
+      "bullets": [
+        "Used C++ in Unreal Engine 5 to code and design a Rube Goldberg Machine featuring traditional Chinese elements",
+        "Promoted RGM competitions in China, reaching 100+ students through presentations and online promotion",
+        "Mentored team members throughout design and development"
+      ]
+    }
+  ],
+  "leadership": [
+    {
+      "title": "External Relations Department",
+      "organization": "Georgia Tech Chinese Students and Scholars Association (GTCSSA)",
+      "location": "Atlanta, GA",
+      "start": "January 2026",
+      "end": "Present",
+      "bullets": [
+        "Coordinated with potential sponsors for the Spring Festival Gala, conducting outreach, negotiation, and follow-up communication"
+      ]
+    }
+  ],
+  "organizations": [
+    "Women in ECE at Georgia Tech",
+    "HyTech Racing (Electric Team)",
+    "VIP — Big Data and Quantum Mechanics",
+    "Georgia Tech Chinese Students and Scholars Association (GTCSSA)"
+  ],
+  "skills": {
+    "programming": ["Java", "Python", "C++", "JavaScript", "Linux"],
+    "platforms": ["Linux", "Arduino", "ESP32"],
+    "hardware": ["3D Printing", "PCB Design", "Soldering", "Oscilloscope", "Breadboarding"],
+    "software": ["Autodesk Fusion 360", "TJC's USART HMI Editor", "Altium Designer", "Inventor", "MATLAB"],
+    "languages_spoken": ["English (Fluent)", "Chinese (Native)"]
+  },
+  "career_goals": {
+    "short_term": [
+      "Complete foundational coursework in Digital System Design and OOP",
+      "Deepen PCB design skills through HyTech Racing",
+      "Develop C++ and Linux proficiency through project work",
+      "Secure a Summer 2027 internship in embedded systems or hardware design"
+    ],
+    "long_term": "Work as a hardware or systems architect in custom silicon design, ADAS, quantum computing hardware, or high-performance embedded systems for robotics. Potentially pursue a Master's or PhD in Computer Architecture.",
+    "timeline": [
+      {"period": "Now — 2026", "milestone": "Build Technical Foundations"},
+      {"period": "Summer 2027", "milestone": "Gain Industry Experience"},
+      {"period": "2028 — 2029", "milestone": "Specialize and Lead"},
+      {"period": "2029+",       "milestone": "Long-Term Vision"}
+    ]
+  }
+}
