@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project - DFT Reproduction</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f4f7fa;
+      --card: #ffffff;
+      --text: #0b1320;
+      --muted: #415a77;
+      --accent: #0f766e;
+      --border: #d8e2ec;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Inter, sans-serif; background: var(--bg); color: var(--text); padding: 40px 20px; }
+    .wrap { max-width: 960px; margin: 0 auto; }
+    .back { color: var(--accent); text-decoration: none; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+    h1 { margin-top: 14px; font-family: "Cormorant Garamond", serif; font-size: 3rem; line-height: 1.05; }
+    .role { margin-top: 8px; color: var(--accent); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; }
+    .card { margin-top: 24px; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 28px; }
+    .card h2 { font-family: "Cormorant Garamond", serif; font-size: 2rem; margin-bottom: 10px; }
+    .card p { color: var(--muted); line-height: 1.8; max-width: 72ch; }
+    .media { margin-top: 16px; width: 100%; border: 1px solid var(--border); border-radius: 10px; background: #e7edf2; padding: 10px; }
+    .media video { width: 100%; aspect-ratio: 4 / 3; object-fit: contain; border-radius: 8px; }
+    .paper { margin-top: 10px; color: var(--muted); font-size: 0.92rem; }
+    .paper a { color: var(--accent); text-decoration: none; }
+    .paper a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="index.html#projects">Back to Projects</a>
+    <h1>DFT Paper Reproduction - Hydrogen on Slab Model</h1>
+    <div class="role">DFT Reproduction Project</div>
+
+    <section class="card">
+      <h2>Result</h2>
+      <p>Successfully reproduced the slab construction and hydrogen adsorption setup using a SPARC-based DFT workflow, and documented the process in the project presentation.</p>
+      <div class="paper">Paper reference: <a href="1-s2.0-S0021951723005122-main.pdf" target="_blank">1-s2.0-S0021951723005122-main.pdf</a></div>
+      <div class="media">
+        <video controls preload="metadata">
+          <source src="Presentation1.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Contents</h2>
+      <p>This project focuses on density functional theory (DFT) replication of the paper's early-stage setup: surface slab preparation, adsorption-site placement, and static energy configuration for hydrogen adsorption.</p>
+    </section>
+  </div>
+</body>
+</html>
